@@ -107,7 +107,7 @@ class TeamController extends Controller
             $img->cover(500, 500);
             $img->toJpeg(80)->save($last_img);
             $old_image = $request->old_image;
-            unlink($old_image);
+            // unlink($old_image);
             $team->image = $last_img;
         }
 
