@@ -74,7 +74,7 @@ class AboutController extends Controller
                 $up_location = 'image/about/';
                 $last_img = $up_location . $image_name;
                 $image->move($up_location, $image_name);
-                unlink($old_image);
+                // unlink($old_image);
                 $about->image = $last_img;
             }
             $about->title = $request->title;
