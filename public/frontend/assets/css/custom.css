@@ -1,0 +1,83 @@
+@font-face {
+  font-family: 'khmer-battambang'; /* Name of the font */
+  src: url('/font/KhmerOSBattambang-Regular.ttf') format('woff');  /* Fallback */
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'khmer-basak'; /* Name of the font */
+  src: url('/font/KhmerOSBassac.ttf') format('woff');  /* Fallback */
+  font-weight: normal;
+  font-style: normal;
+}
+
+.kh-koulen {
+  font-family: "khmer-basak", "khmer-battambang" !important;
+  line-height: 40px !important;
+}
+
+.kh-battambang {
+  font-family: "khmer-battambang", "sans-serif" !important;
+  line-height: 40px;
+}
+
+body{
+  font-family: "khmer-battambang", sans-serif !important;
+}
+.justify {
+  text-align: justify !important;
+}
+
+.w-bold {
+  font-weight: 700 !important;
+}
+
+.about-us .content h1,
+h2,
+h3 {
+  line-height: 40px !important;
+}
+
+.about-us .content h4,
+h4,
+h5,
+h6,
+.entry-title,
+p {
+  font-family: "khmer-Battambang", sans-serif !important;
+
+}
+
+.todo-list__label__description {
+  font-family: "khmer-Battambang", sans-serif !important;
+}
+
+.social-link{
+  font-size: 1.2rem;
+}
+
+.card-img-contain {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  height: 200px;
+}
+.card-img-cover {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  height: 200px;
+}
+
+.team-row{
+  display: flex;               /* Enables Flexbox */
+  justify-content: center;     /* Centers all columns horizontally */
+  align-items: center;         /* Centers all columns vertically (optional) */
+
+}
+
+.entry-content{
+  font-family: "khmer-Battambang", sans-serif !important;
+}

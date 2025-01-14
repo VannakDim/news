@@ -1,0 +1,57 @@
+#slider-image{
+    height: 108px;
+    width: 192px;
+}
+
+
+.kh-koulen{
+    font-family: "Koulen", sans-serif !important;
+    line-height: 27px !important;
+  }
+  
+.kh-battambang{
+  font-family: "Battambang", sans-serif !important;
+  line-height: 27px;
+}
+
+.card-body p{
+  font-family: "Battambang", sans-serif !important;
+
+}
+
+.sidenav-item-link i{
+  font-size: 1.5rem;
+  padding-right: 5px;
+}
+
+.card-img-contain {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  height: 200px;
+}
+
+.card-img-cover {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: center;
+  height: 300px;
+}
+
+@media (max-width: 768px) {
+
+  #img-preview{
+    width: 100%;
+    height: 300px !important;
+  }
+}
+
+.text-truncate {
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* Number of lines to show */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
