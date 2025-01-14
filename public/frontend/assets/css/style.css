@@ -6,7 +6,8 @@
 */
 
 :root {
-  --primary-color: #389649; /* Define your primary color here */
+  --primary-color: #364fc9; /* Define your primary color here */
+  --second-color:#5363b7;
 }
 
 /*--------------------------------------------------------------
@@ -22,7 +23,7 @@ a {
 }
 
 a:hover {
-  color: #2ae149;
+  color: var(--second-color);
   text-decoration: none;
 }
 
@@ -56,7 +57,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .back-to-top:hover {
   color: #fff;
-  background: #2ae149;
+  background: var(--second-color);
   transition: 0.3s ease-in-out;
 }
 
@@ -1171,7 +1172,7 @@ section {
 }
 
 .pricing .btn-buy:hover {
-  background: #2ae149;
+  background: var(--second-color);
 }
 
 .pricing .featured h3 {
@@ -1465,7 +1466,7 @@ section {
 }
 
 .contact .php-email-form button[type="submit"]:hover {
-  background: #2ae149;
+  background: var(--second-color);
 }
 
 @-webkit-keyframes animate-loading {
@@ -2233,7 +2234,7 @@ section {
 }
 
 #footer .footer-newsletter form input[type="submit"]:hover {
-  background: #2ae149;
+  background: var(--second-color);
 }
 
 #footer .credits {
