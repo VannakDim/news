@@ -41,7 +41,7 @@
                     $product = ['product', 'model', 'category'];
                     $home = ['brand'];
                 @endphp
-                <li class="has-sub @if (in_array($url, $home)) expand active @endif">
+                {{-- <li class="has-sub @if (in_array($url, $home)) expand active @endif">
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#home"
                         aria-expanded="false" aria-controls="dashboard">
                         <i class="fa-solid fa-house"></i>
@@ -61,7 +61,7 @@
 
                         </div>
                     </ul>
-                </li>
+                </li> --}}
 
 
                 <li class="has-sub @if (in_array($url, $component)) expand active @endif">
@@ -159,7 +159,7 @@
                     </ul>
                 </li>
 
-                <li class="has-sub @if (in_array($url, $product)) expand active @endif">
+                {{-- <li class="has-sub @if (in_array($url, $product)) expand active @endif">
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#products"
                         aria-expanded="false" aria-controls="products">
                         <i class="fa-solid fa-walkie-talkie"></i>
@@ -202,7 +202,7 @@
                             </li>
                         </div>
                     </ul>
-                </li>
+                </li> --}}
         </div>
         
     </div>
