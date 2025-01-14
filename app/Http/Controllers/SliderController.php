@@ -86,7 +86,7 @@ class SliderController extends Controller
 
     public function store(Request $request){
         $validated = $request->validate([
-            'title' => 'required|unique:Sliders|max:25',
+            'title' => 'required|max:50',
         ],
         [
             'title.required'=>'សូមបញ្ចូលឈ្មោះស្លាយ',
