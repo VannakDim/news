@@ -183,7 +183,7 @@
     </section><!-- End Our Skills Section -->
 
     <!-- ======= Our Clients Section ======= -->
-    <section id="clients" class="clients">
+    {{-- <section id="clients" class="clients">
         <div class="container" data-aos="fade-up">
 
             <div class="section-title">
@@ -251,7 +251,7 @@
             </div>
 
         </div>
-    </section><!-- End Our Clients Section -->
+    </section><!-- End Our Clients Section --> --}}
 @endsection
 
 @section('style')
