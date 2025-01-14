@@ -1,7 +1,7 @@
 @extends('frontend.layout.web')
 
 @section('meta')
-    <title>KON KHMER CODE|កូនខ្មែរកូដ</title>
+    <title>វាយោថ្មី</title>
     <meta name="description" content="កូនខ្មែរកូដ ផ្តល់ជូនលោកអ្នកនូវសេវាកម្មល្អឥតខ្ចោះក្នុងការបង្កើតគេហទំព័រផ្លូវការ">
     <meta property="og:title" content="{{ $meta->title ?? 'កូនខ្មែរកូដ' }}">
     <meta property="og:description" content="{{ $meta->description ?? 'កូនខ្មែរកូដ ផ្តល់ជូនលោកអ្នកនូវសេវាកម្មល្អឥតខ្ចោះក្នុងការបង្កើតគេហទំព័រផ្លូវការ' }}">
