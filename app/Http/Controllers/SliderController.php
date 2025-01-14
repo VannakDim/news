@@ -18,6 +18,10 @@ class SliderController extends Controller
         return view('admin.slider.index',compact('sliders','trash'));
     }
 
+    public function create(){
+        return view('admin.slider.create');
+    }
+
     public function get_slider_data($id){
         $slider = Slider::find($id);
         return response()->json([

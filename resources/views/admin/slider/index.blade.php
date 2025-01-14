@@ -8,6 +8,19 @@
                     <div class="col-md-12">
 
                         <div class="row">
+                            <div class="col-md-6 col-xl-4">
+                                <a href="{{route('create.slider')}}">
+                                <div class="card mb-4">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/4174/4174487.png" style="height: 450px" alt="">
+                                    {{-- <img style="" class="card-img-top" src="{{ asset($slider->image) }}"> --}}
+                                    {{-- <div class="card-body">
+                                        <h5 class="card-title text-primary kh-koulen">ADD NEW SLIDER</h5>
+                                        <p class="card-text pb-3">Just click to create a new slider</p>
+                                        
+                                    </div> --}}
+                                </div>
+                            </a>
+                            </div>
                             @foreach ($sliders as $slider)
                                 <div class="col-md-6 col-xl-4">
                                     <div class="card mb-4">

@@ -39,6 +39,7 @@ Route::middleware([
     })->name('dashboard');
 
     Route::get('/slider/all', [SliderController::class, 'index'])->name('all.slider');
+    Route::get('/slider/create', [SliderController::class, 'create'])->name('create.slider');
     Route::get('/slider/get/{id}', [SliderController::class, 'get_slider_data'])->name('get_slider_data');
     Route::post('/slider/store', [SliderController::class, 'store'])->name('store.slider');
     Route::get('/slider/edit/{id}', [SliderController::class, 'edit']);
@@ -107,7 +108,7 @@ Route::middleware([
     Route::get('/product/stock-out', [StockOutController::class, 'create'])->name('stockout.create');
     Route::post('/product/stock-out/store', [StockOutController::class, 'store'])->name('stockout.store');
 
-    
+
 
     Route::get('/logout', [UserAuthController::class, 'logout'])->name('user.logout');
 });
