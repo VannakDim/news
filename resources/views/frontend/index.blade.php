@@ -187,8 +187,8 @@
             </div>
 
         </div>
-    </section><!-- End Our Clients Section -->
-@endsection --}}
+    </section> --}}<!-- End Our Clients Section -->
+@endsection
 
 @section('style')
     <style>
