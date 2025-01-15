@@ -19,7 +19,7 @@ class SearchController extends Controller
             $posts = Post::where('title', 'LIKE', "%{$query}%")
                 ->orWhere('description', 'LIKE', "%{$query}%")
                 ->orWhere('content', 'LIKE', "%{$query}%")
-                ->get();
+                ->get()->sortByDesc('created_at');
 
             // Search Tags
             $tags = Tag::where('name', 'LIKE', "%{$query}%")->get();
@@ -55,7 +55,7 @@ class SearchController extends Controller
     {
         $categories = Category::where('name', $category)->first();
         if($categories){
-            $posts = $categories->posts;
+            $posts = $categories->posts->sortByDesc('created_at');
             $categories = Category::all();
             return view('frontend.blog',compact('posts','categories'));
         }
