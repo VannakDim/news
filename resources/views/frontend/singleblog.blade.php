@@ -230,7 +230,8 @@
 
                         </div> --}}
 
-                    </div><!-- End blog comments -->
+                    {{-- </div> --}}
+                    <!-- End blog comments -->
 
                 </div><!-- End blog entries list -->
 
