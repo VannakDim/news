@@ -13,7 +13,7 @@ class PostController extends Controller
     public function index()
     {
         // $posts = Post::where('status', 'public')->get()->sortByDesc('created_at');
-        $post = Post::all()->sortByDesc('created_at');
+        $posts = Post::all()->sortByDesc('created_at');
         return view('admin.post.index', compact('posts'));
     }
     public function page_add()
