@@ -309,6 +309,13 @@
             fullscreenDiv.onclick = function() {
                 fullscreenDiv.remove();
             }
+
+            // Close the fullscreen on escape key press
+            document.onkeydown = function(e) {
+                if (e.key === 'Escape') {
+                    fullscreenDiv.remove();
+                }
+            }
         }
     </script>
 @endsection
