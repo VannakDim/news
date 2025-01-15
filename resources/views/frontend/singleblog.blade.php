@@ -94,18 +94,18 @@
                             <a href="https://facebook.com/#"><i class="icofont-facebook"></i></a>
                             <a href="https://instagram.com/#"><i class="icofont-instagram"></i></a>
                         </div>
-                        <p>
+                        {{-- <p>
                             Itaque quidem optio quia voluptatibus dolorem dolor. Modi eum sed possimus accusantium. Quas
                             repellat voluptatem officia numquam sint aspernatur voluptas. Esse et accusantium ut unde
                             voluptas.
-                        </p>
-                    </div><!-- End blog author bio -->
+                        </p> --}}
+                    </div>
 
-                    <div class="blog-comments" data-aos="fade-up">
+                    {{-- <div class="blog-comments" data-aos="fade-up"> --}}
 
-                        <h4 class="comments-count">8 Comments</h4>
+                        {{-- <h4 class="comments-count">8 Comments</h4> --}}
 
-                        <div id="comment-1" class="comment clearfix">
+                        {{-- <div id="comment-1" class="comment clearfix">
                             <img src="{{ asset('frontend/assets/img/comments-1.jpg') }}" class="comment-img  float-left"
                                 alt="">
                             <h5><a href="">Georgia Reader</a> <a href="#" class="reply"><i
@@ -117,9 +117,9 @@
                                 Vero aut rerum vel. Rerum quos laboriosam placeat ex qui. Sint qui facilis et.
                             </p>
 
-                        </div><!-- End comment #1 -->
+                        </div><!-- End comment #1 --> --}}
 
-                        <div id="comment-2" class="comment clearfix">
+                        {{-- <div id="comment-2" class="comment clearfix">
                             <img src="{{ asset('frontend/assets/img/comments-2.jpg') }}" class="comment-img  float-left"
                                 alt="">
                             <h5><a href="">Aron Alvarado</a> <a href="#" class="reply"><i
@@ -163,13 +163,13 @@
                                         necessitatibus.
                                     </p>
 
-                                </div><!-- End comment reply #2-->
+                                </div>
 
-                            </div><!-- End comment reply #1-->
+                            </div>
 
-                        </div><!-- End comment #2-->
+                        </div> --}}
 
-                        <div id="comment-3" class="comment clearfix">
+                        {{-- <div id="comment-3" class="comment clearfix">
                             <img src="{{ asset('frontend/assets/img/comments-5.jpg') }}" class="comment-img  float-left"
                                 alt="">
                             <h5><a href="">Nolan Davidson</a> <a href="#" class="reply"><i
@@ -184,9 +184,9 @@
                                 sit nostrum dolorem.
                             </p>
 
-                        </div><!-- End comment #3 -->
+                        </div><!-- End comment #3 --> --}}
 
-                        <div id="comment-4" class="comment clearfix">
+                        {{-- <div id="comment-4" class="comment clearfix">
                             <img src="{{ asset('frontend/assets/img/comments-6.jpg') }}" class="comment-img  float-left"
                                 alt="">
                             <h5><a href="">Kay Duggan</a> <a href="#" class="reply"><i
@@ -197,9 +197,9 @@
                                 sed quia ut maxime. Est ad aut cum. Ut exercitationem non in fugiat.
                             </p>
 
-                        </div><!-- End comment #4 -->
+                        </div><!-- End comment #4 --> --}}
 
-                        <div class="reply-form">
+                        {{-- <div class="reply-form">
                             <h4>Leave a Reply</h4>
                             <p>Your email address will not be published. Required fields are marked * </p>
                             <form action="">
@@ -228,7 +228,7 @@
 
                             </form>
 
-                        </div>
+                        </div> --}}
 
                     </div><!-- End blog comments -->
 
