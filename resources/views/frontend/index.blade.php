@@ -122,46 +122,6 @@
         </div>
     </section><!-- End Services Section -->
 
-    <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio">
-        <div class="container">
-
-            <div class="section-title" data-aos="fade-up">
-                <h2>Portfolio</h2>
-            </div>
-
-            <div class="row" data-aos="fade-up">
-                <div class="col-lg-12 d-flex justify-content-center">
-                    <ul id="portfolio-flters">
-                        <li data-filter="*" class="filter-active">All</li>
-                        @foreach ($category as $cat)
-                            <li data-filter=".{{$cat->name}}">{{$cat->name}}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
-
-            <div class="row portfolio-container" data-aos="fade-up">
-
-                @foreach ($data as $item)
-                <div class="col-lg-4 col-md-6 portfolio-item {{$item['category']}}">
-                    <img src="{{ asset($item['image']) }}" class="img-fluid"
-                        alt="">
-                    <div class="portfolio-info">
-                        <h4>{{$item['model_name']}}<span class="badge badge-success pb-0 mx-2">{{$item['available_stock']}}</span></h4>
-                        <p>{{$item['brand_name']}}</p>
-                        <a href="{{ asset($item['image'])}}" data-gall="portfolioGallery"
-                            class="venobox preview-link" title="{{$item['model_name']}}"><i class="bx bx-plus"></i></a>
-                        <a href="portfolio-details.html" class="details-link" title="More Details"><i
-                                class="bx bx-link"></i></a>
-                    </div>
-                </div>
-                @endforeach
-
-            </div>
-
-        </div>
-    </section><!-- End Portfolio Section -->
 
     <!-- ======= Our Clients Section ======= -->
     {{-- <section id="clients" class="clients">
