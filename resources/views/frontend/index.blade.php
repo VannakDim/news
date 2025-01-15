@@ -56,44 +56,6 @@
         </div>
       </section><!-- End Blog Section -->  
 
-    <!-- ======= About Us Section ======= -->
-    <section id="about-us" class="about-us">
-        <div class="container" data-aos="fade-up">
-
-            <div class="row content">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h2 class="kh-koulen">{{ $about->title }}</h2>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h3 class="kh-koulen">{!! $about->short_description !!}</h3>
-                        </div>
-                    </div>
-                    <div class="row" style="padding: 0 70px">
-                        <img id="row-img" src="{{ asset($about->image) }}" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left">
-                    <p class="kh-battambang justify">
-                        {!! $about->long_description !!}
-                    </p>
-                    @foreach ($about->items as $item)
-                        <ul style="margin-bottom: 0">
-                            <li class="kh-battambang"><i class="ri-check-double-line"></i>{{ $item->about_item }}</li>
-                        </ul>
-                    @endforeach
-                    <p class="font-italic">
-                        {!! $about->more_description !!}
-                    </p>
-                </div>
-            </div>
-
-        </div>
-    </section><!-- End About Us Section -->
-
     <!-- ======= Services Section ======= -->
     <section id="services" class="services section-bg">
         <div class="container" data-aos="fade-up">
