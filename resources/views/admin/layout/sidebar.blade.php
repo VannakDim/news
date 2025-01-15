@@ -126,7 +126,7 @@
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#blogs"
                         aria-expanded="false" aria-controls="blogs">
                         <i class="fa-solid fa-signs-post"></i>
-                        <span class="nav-text">BLOGS</span> <b class="caret"></b>
+                        <span class="nav-text">NEWS</span> <b class="caret"></b>
                     </a>
                     <ul class="collapse @if (in_array($url, $blog)) show @endif" id="blogs"
                         data-parent="#sidebar-menu">
@@ -140,7 +140,7 @@
                                 </a>
                             </li>
 
-                            <li class="{{ request()->is('tag*') ? 'active' : '' }}">
+                            {{-- <li class="{{ request()->is('tag*') ? 'active' : '' }}">
                                 <a class="sidenav-item-link" href="{{ route('all.about') }}">
                                     <i class="fa-solid fa-caret-right {{ request()->is('tag*') ? 'fa-beat' : '' }}"></i>
                                     <span class="nav-text">TAGS</span>
@@ -154,7 +154,7 @@
                                     <span class="nav-text">CATEGORIES</span>
 
                                 </a>
-                            </li>
+                            </li> --}}
                         </div>
                     </ul>
                 </li>
