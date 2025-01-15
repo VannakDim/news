@@ -17,24 +17,12 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function home(){
-        $data = ProductModel::with('brand')->get()->map(function ($model) {
-            $stockIn = StockInDetail::where('product_model_id', $model->id)->sum('quantity');
-            $stockOut = StockOutDetail::where('product_model_id', $model->id)->sum('quantity');
-            return [
-                'id' => $model->id,
-                'model_name' => $model->name,
-                'frequency' => $model->frequency,
-                'type' => $model->type,
-                'image' => $model->image,
-                'category' => $model->category->name,
-                'brand_name' => $model->brand->brand_name,
-                'available_stock' => $stockIn - $stockOut,
-            ];
-        });
+        
+        $posts = Post::where('status',"public")->get()->sortByDesc('created_at');
         $category = ProductCategory::all();
         $about = About::first();
         $services = Services::all();
-        return view('frontend.index',compact('about','services','data','category'));
+        return view('frontend.index',compact('about','services','category','posts'));
     }
     public function blog(){
         $posts = Post::where('status',"public")->get()->sortByDesc('created_at');
