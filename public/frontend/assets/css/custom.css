@@ -28,6 +28,10 @@ body{
   text-align: justify !important;
 }
 
+.nav-menu ul li a {
+  font-family: "khmer-battambang", sans-serif !important;
+}
+
 .w-bold {
   font-weight: 700 !important;
 }
