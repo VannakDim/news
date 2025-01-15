@@ -1,6 +1,7 @@
 <!-- ======= Header ======= -->
 @php
     $contact = DB::table('contacts')->find(1);
+    $categories = DB::table('categories')->get();
 @endphp
 
 <header id="header" class="fixed-top">
@@ -15,16 +16,13 @@
             <ul>
 
                 <li class="{{ request()->is('/') ? 'active' : '' }}"><a href="/">Home</a></li>
-                <li class="{{ request()->is('blog*') ? 'active' : '' }}"><a href="{{ route('home.blog') }}">News</a>
-                </li>
+                @foreach ($categories as $category)
+                    <li class="{{ request()->is('category/' . $category->id) ? 'active' : '' }}"><a href="{{ route('home.category', $category->id) }}">{{ $category->name }}</a></li>
+                @endforeach
+                {{-- <li class="{{ request()->is('blog*') ? 'active' : '' }}"><a href="{{ route('home.blog') }}">News</a></li>
+                <li class="{{ request()->is('about') ? 'active' : '' }}"><a href="{{ route('home.about') }}">About</a></li>
+                <li class="{{ request()->is('contact') ? 'active' : '' }}"><a href="{{ route('home.contact') }}">Contact</a></li> --}}
 
-                <li class="{{ request()->is('about') ? 'active' : '' }}"><a href="{{ route('home.about') }}">About</a>
-                    
-                </li>
-
-                <li class="{{ request()->is('contact') ? 'active' : '' }}">
-                    <a href="{{ route('home.contact') }}">Contact</a>
-                </li>
                 @if ($contact->facebook)
                     <li><a href="{{ $contact->facebook }}" target="_blank" rel="noopener noreferrer" class="facebook"><i class="fa-brands fa-facebook social-link"></i></a></li>    
                 @endif
