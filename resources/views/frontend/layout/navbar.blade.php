@@ -16,9 +16,9 @@
             <ul>
 
                 <li class="{{ request()->is('/') ? 'active' : '' }}"><a href="/">Home</a></li>
-                @foreach ($categories as $category)
+                {{-- @foreach ($categories as $category)
                     <li class="{{ request()->is('category/' . $category->id) ? 'active' : '' }}"><a href="{{ route('home.category', $category->id) }}">{{ $category->name }}</a></li>
-                @endforeach
+                @endforeach --}}
                 {{-- <li class="{{ request()->is('blog*') ? 'active' : '' }}"><a href="{{ route('home.blog') }}">News</a></li>
                 <li class="{{ request()->is('about') ? 'active' : '' }}"><a href="{{ route('home.about') }}">About</a></li>
                 <li class="{{ request()->is('contact') ? 'active' : '' }}"><a href="{{ route('home.contact') }}">Contact</a></li> --}}
