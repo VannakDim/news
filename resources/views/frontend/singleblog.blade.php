@@ -33,7 +33,14 @@
                     <article class="entry entry-single" data-aos="fade-up">
 
                         <div class="entry-img">
-                            <img src="{{ asset($post->image) }}" alt="" class="img-fluid">
+                            <img id="postImage" src="{{ asset($post->image) }}" alt="" class="img-fluid">
+                        </div>
+
+                        <!-- The Modal -->
+                        <div id="imageModal" class="modal">
+                            <span class="close">&times;</span>
+                            <img class="modal-content" id="fullImage">
+                            <div id="caption"></div>
                         </div>
 
                         <h2 class="entry-title">
@@ -103,9 +110,9 @@
 
                     {{-- <div class="blog-comments" data-aos="fade-up"> --}}
 
-                        {{-- <h4 class="comments-count">8 Comments</h4> --}}
+                    {{-- <h4 class="comments-count">8 Comments</h4> --}}
 
-                        {{-- <div id="comment-1" class="comment clearfix">
+                    {{-- <div id="comment-1" class="comment clearfix">
                             <img src="{{ asset('frontend/assets/img/comments-1.jpg') }}" class="comment-img  float-left"
                                 alt="">
                             <h5><a href="">Georgia Reader</a> <a href="#" class="reply"><i
@@ -119,7 +126,7 @@
 
                         </div><!-- End comment #1 --> --}}
 
-                        {{-- <div id="comment-2" class="comment clearfix">
+                    {{-- <div id="comment-2" class="comment clearfix">
                             <img src="{{ asset('frontend/assets/img/comments-2.jpg') }}" class="comment-img  float-left"
                                 alt="">
                             <h5><a href="">Aron Alvarado</a> <a href="#" class="reply"><i
@@ -169,7 +176,7 @@
 
                         </div> --}}
 
-                        {{-- <div id="comment-3" class="comment clearfix">
+                    {{-- <div id="comment-3" class="comment clearfix">
                             <img src="{{ asset('frontend/assets/img/comments-5.jpg') }}" class="comment-img  float-left"
                                 alt="">
                             <h5><a href="">Nolan Davidson</a> <a href="#" class="reply"><i
@@ -186,7 +193,7 @@
 
                         </div><!-- End comment #3 --> --}}
 
-                        {{-- <div id="comment-4" class="comment clearfix">
+                    {{-- <div id="comment-4" class="comment clearfix">
                             <img src="{{ asset('frontend/assets/img/comments-6.jpg') }}" class="comment-img  float-left"
                                 alt="">
                             <h5><a href="">Kay Duggan</a> <a href="#" class="reply"><i
@@ -199,7 +206,7 @@
 
                         </div><!-- End comment #4 --> --}}
 
-                        {{-- <div class="reply-form">
+                    {{-- <div class="reply-form">
                             <h4>Leave a Reply</h4>
                             <p>Your email address will not be published. Required fields are marked * </p>
                             <form action="">
@@ -245,7 +252,6 @@
 
 @section('style')
     <style>
-
         .image-container {
             padding: 0 20px;
         }
@@ -261,6 +267,102 @@
         ol li {
             font-family: 'battambang';
         }
-    </style>
-@endsection
 
+        /* The Modal (background) */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        /* Modal Content (image) */
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        /* Caption of Modal Image */
+        #caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+        }
+
+        /* Add Animation */
+        .modal-content,
+        #caption {
+            -webkit-animation-name: zoom;
+            -webkit-animation-duration: 0.6s;
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        @-webkit-keyframes zoom {
+            from {
+                -webkit-transform: scale(0)
+            }
+
+            to {
+                -webkit-transform: scale(1)
+            }
+        }
+
+        @keyframes zoom {
+            from {
+                transform: scale(0)
+            }
+
+            to {
+                transform: scale(1)
+            }
+        }
+
+        /* The Close Button */
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        document.getElementById('postImage').onclick = function() {
+            var modal = document.getElementById('imageModal');
+            var modalImg = document.getElementById('fullImage');
+            var captionText = document.getElementById('caption');
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            captionText.innerHTML = this.alt;
+
+            var span = document.getElementsByClassName('close')[0];
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+@endsection
