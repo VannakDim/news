@@ -11,6 +11,51 @@
 @section('content')
     @include('frontend.layout.slider')
 
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+        <div class="container">
+  
+          <div class="row">
+  
+            <div class="col-lg-8 entries">
+              @foreach ($posts as $post)
+                
+              <article class="entry" data-aos="fade-up">
+  
+                <div class="entry-img">
+                  <img src="{{ asset($post->image) }}" alt="" class="img-fluid">
+                </div>
+  
+                <h2 class="entry-title">
+                  <a class="kh-koulen" href="blog/{{ $post->id }}">{{ $post->title }}</a>
+                </h2>
+  
+                <div class="entry-meta">
+                  <ul>
+                    <li class="d-flex align-items-center"><i class="icofont-user"></i> <a href="blog-single.html">{{$post->user->name}}</a></li>
+                    <li class="d-flex align-items-center"><i class="icofont-wall-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">{{$post->created_at->diffForHumans()}}</time></a></li>
+                    <li class="d-flex align-items-center"><i class="icofont-comment"></i> <a href="blog-single.html">12 Comments</a></li>
+                  </ul>
+                </div>
+  
+                <div class="entry-content">
+                  <p>{{ $post->description }}</p>
+                  <div class="read-more">
+                    <a href="{{ route('home.blog.single', $post->id) }}">Read More</a>
+                  </div>
+                </div>
+  
+              </article><!-- End blog entry -->
+              @endforeach
+            </div><!-- End blog entries list -->
+  
+            @include('frontend.layout.rightsidebar')
+  
+          </div>
+  
+        </div>
+      </section><!-- End Blog Section -->  
+
     <!-- ======= About Us Section ======= -->
     <section id="about-us" class="about-us">
         <div class="container" data-aos="fade-up">
