@@ -79,12 +79,21 @@
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">Blog image</label>
+                                                <label for="exampleInputEmail1">Thumbnail image</label>
                                                 <input type="file" name="image" id="input-image" class="form-control">
                                                 @error('image')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Additional Images</label>
+                                                <input type="file" name="images[]" id="input-images" class="form-control" multiple>
+                                                <div id="image-preview-container" style="display: flex; flex-wrap: wrap; gap: 10px;"></div>
+                                                @error('images')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                            
                                         </div>
                                         <div class="col-md-6">
                                             <div class="post-img" id="img-preview"
@@ -154,6 +163,8 @@
         const default_img = '{{ URL::to('') }}' + '/backend/assets/img/default-image.avif';
         const imageInput = document.getElementById('input-image');
         const previewImage = document.getElementById('img-preview');
+        const imagesInput = document.getElementById('input-images');
+        const imagePreviewContainer = document.getElementById('image-preview-container');
 
         // Listen for the file input change event
         imageInput.addEventListener('change', function(event) {
@@ -176,6 +187,28 @@
                 previewImage.style.backgroundImage = `url('${default_img}')`;
                 previewImage.style.display = 'none';
             }
+        });
+
+        // Listen for the multiple images input change event
+        imagesInput.addEventListener('change', function(event) {
+            const files = event.target.files; // Get the selected files
+            imagePreviewContainer.innerHTML = ''; // Clear previous previews
+
+            Array.from(files).forEach(file => {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    const img = document.createElement('div');
+                    img.style.backgroundImage = `url('${e.target.result}')`;
+                    img.style.width = '100px';
+                    img.style.height = '100px';
+                    img.style.backgroundSize = 'cover';
+                    img.style.backgroundPosition = 'center';
+                    imagePreviewContainer.appendChild(img);
+                };
+
+                reader.readAsDataURL(file);
+            });
         });
     </script>
     <script src="https://cdn.tiny.cloud/1/qdi8ljnwutu3zjh290nqmze8oo8w5x9wqh925tzk9eyqpqmk/tinymce/7/tinymce.min.js"

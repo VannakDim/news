@@ -57,6 +57,31 @@
                             {!! $post->content !!}
                         </div>
 
+                        @if ($post->images->count() > 0)
+                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                    @foreach ($post->images as $index => $image)
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="{{ $index }}" class="{{ $index == 0 ? 'active' : '' }}"></li>
+                                    @endforeach
+                                </ol>
+                                <div class="carousel-inner">
+                                    @foreach ($post->images as $index => $image)
+                                        <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                                            <img class="d-block w-100" src="{{ asset('images/' . $image->image) }}" alt="Slide {{ $index + 1 }}">
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+                        @endif
+
                         <div class="entry-footer clearfix">
                             <div class="float-left">
                                 <i class="icofont-folder"></i>
@@ -284,7 +309,13 @@
             margin: auto;
         }
     </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+@endsection
 
+@section('script')
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
         // script.js
         function openFullscreen(image) {

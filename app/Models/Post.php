@@ -32,4 +32,8 @@ class Post extends Model
     function categories(){
         return $this->belongsToMany(Category::class);
     }
+
+    function images(){
+        return $this->hasMany(PostImage::class);
+    }
 }

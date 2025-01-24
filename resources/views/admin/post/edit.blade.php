@@ -4,7 +4,6 @@
     <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/44.0.0/ckeditor5.css" crossorigin>
 @endsection
 @php
-
     $categories = App\Models\Category::all();
 @endphp
 @section('main_body')
@@ -87,10 +86,25 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="exampleInputEmail1">Blog image</label>
+                                                <label for="exampleInputEmail1">Thumbnail image</label>
                                                 <input id="input-image" type="file" name="image" class="form-control"
                                                     style="border: rgb(209, 215, 221) 0.1px solid;">
                                                 @error('image')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Additional Images</label>
+                                                <input type="file" name="images[]" id="input-images" class="form-control" multiple>
+                                                <div id="image-preview-container" style="display: flex; flex-wrap: wrap; gap: 10px;">
+                                                    @if ($post->images->count() == 0)
+                                                        <div style="background-image: url('{{ asset('images/default-image.avif') }}'); width: 100px; height: 100px; background-size: cover; background-position: center;"></div>
+                                                        @foreach ($post->images as $image)
+                                                            <div style="background-image: url('{{ asset('images/' . $image->image) }}'); width: 100px; height: 100px; background-size: cover; background-position: center;"></div>
+                                                        @endforeach
+                                                    @endif
+                                                </div>
+                                                @error('images')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
@@ -163,6 +177,8 @@
         const default_img = '{{ URL::to('') }}' + '/backend/assets/img/default-image.avif';
         const imageInput = document.getElementById('input-image');
         const previewImage = document.getElementById('img-preview');
+        const imagesInput = document.getElementById('input-images');
+        const imagePreviewContainer = document.getElementById('image-preview-container');
 
         // Listen for the file input change event
         imageInput.addEventListener('change', function(event) {
@@ -185,6 +201,28 @@
                 previewImage.style.backgroundImage = `url('${default_img}')`;
                 previewImage.style.display = 'none';
             }
+        });
+
+        // Listen for the multiple images input change event
+        imagesInput.addEventListener('change', function(event) {
+            const files = event.target.files; // Get the selected files
+            imagePreviewContainer.innerHTML = ''; // Clear previous previews
+
+            Array.from(files).forEach(file => {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    const img = document.createElement('div');
+                    img.style.backgroundImage = `url('${e.target.result}')`;
+                    img.style.width = '100px';
+                    img.style.height = '100px';
+                    img.style.backgroundSize = 'cover';
+                    img.style.backgroundPosition = 'center';
+                    imagePreviewContainer.appendChild(img);
+                };
+
+                reader.readAsDataURL(file);
+            });
         });
     </script>
     <script src="https://cdn.tiny.cloud/1/qdi8ljnwutu3zjh290nqmze8oo8w5x9wqh925tzk9eyqpqmk/tinymce/7/tinymce.min.js"

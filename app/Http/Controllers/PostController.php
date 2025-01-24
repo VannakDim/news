@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Tag;
 use App\Models\Category;
+use App\Models\PostImage;
 
 class PostController extends Controller
 {
@@ -42,6 +43,7 @@ class PostController extends Controller
             'status' => 'required',
             'is_featured' => 'nullable|boolean',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         // Create or fetch tags
         $category = collect($validated['categories'])->map(function ($categoryName) {
@@ -68,6 +70,20 @@ class PostController extends Controller
         }
         $post->save();
 
+        // Handle additional images
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $imageName = time() . '-' . $image->getClientOriginalName();
+                $image->move(public_path('images'), $imageName);
+
+                // Save each image to the PostImage table
+                PostImage::create([
+                    'post_id' => $post->id,
+                    'image' => $imageName,
+                ]);
+            }
+        }
+
         $post->categories()->sync($category);
         $post->tags()->sync($tags);
 
@@ -87,6 +103,7 @@ class PostController extends Controller
             'content' => 'nullable',
             'is_featured' => 'nullable|boolean',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         // Create or fetch tags
         $category = collect($validated['categories'])->map(function ($categoryName) {
@@ -110,6 +127,20 @@ class PostController extends Controller
             $post->image = 'image/post/' . $name_gen;
         }
         sleep(1);
+
+        // Handle additional images
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $imageName = time() . '-' . $image->getClientOriginalName();
+                $image->move(public_path('images'), $imageName);
+
+                // Save each image to the PostImage table
+                PostImage::create([
+                    'post_id' => $post->id,
+                    'image' => $imageName,
+                ]);
+            }
+        }
 
         $post->save();
         $post->categories()->sync($category);
