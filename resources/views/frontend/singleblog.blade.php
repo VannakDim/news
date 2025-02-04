@@ -67,33 +67,45 @@
                         @endif
 
                         @if ($post->video)
-                            <div class="entry-video">
+                            <div class="py-5">
+                                <iframe width="100%" height="315"
+                                src="https://www.youtube.com/embed/{{ \Illuminate\Support\Str::afterLast($post->video, '/') }}"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </div>
+
+                            {{-- <div class="entry-video">
                                 <video controls width="100%">
                                     <source src="{{ asset('videos/' . $post->video) }}" type="video/mp4">
                                     Your browser does not support the video element.
                                 </video>
-                            </div>
+                            </div> --}}
                         @endif
 
                         @if ($post->images->count() > 0)
                             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                                 <ol class="carousel-indicators">
                                     @foreach ($post->images as $index => $image)
-                                        <li data-target="#carouselExampleIndicators" data-slide-to="{{ $index }}" class="{{ $index == 0 ? 'active' : '' }}"></li>
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="{{ $index }}"
+                                            class="{{ $index == 0 ? 'active' : '' }}"></li>
                                     @endforeach
                                 </ol>
                                 <div class="carousel-inner">
                                     @foreach ($post->images as $index => $image)
                                         <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
-                                            <img class="d-block w-100" src="{{ asset('images/' . $image->image) }}" alt="Slide {{ $index + 1 }}">
+                                            <img class="d-block w-100" src="{{ asset('images/' . $image->image) }}"
+                                                alt="Slide {{ $index + 1 }}">
                                         </div>
                                     @endforeach
                                 </div>
-                                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                                    data-slide="prev">
                                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                     <span class="sr-only">Previous</span>
                                 </a>
-                                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                                    data-slide="next">
                                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                     <span class="sr-only">Next</span>
                                 </a>
@@ -106,7 +118,8 @@
                                 <ul class="cats">
                                     @foreach ($post->categories as $category)
                                         <li>
-                                            <a href="{{ route('filter_by_category', $category->name) }}">{{ $category->name }}</a>
+                                            <a
+                                                href="{{ route('filter_by_category', $category->name) }}">{{ $category->name }}</a>
                                         </li>
                                     @endforeach
                                 </ul>
