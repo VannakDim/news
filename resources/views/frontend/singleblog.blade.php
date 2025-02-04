@@ -57,6 +57,24 @@
                             {!! $post->content !!}
                         </div>
 
+                        @if ($post->audio)
+                            <div class="entry-audio">
+                                <audio controls>
+                                    <source src="{{ asset('audios/' . $post->audio) }}" type="audio/mpeg">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                        @endif
+
+                        @if ($post->video)
+                            <div class="entry-video">
+                                <video controls width="100%">
+                                    <source src="{{ asset('videos/' . $post->video) }}" type="video/mp4">
+                                    Your browser does not support the video element.
+                                </video>
+                            </div>
+                        @endif
+
                         @if ($post->images->count() > 0)
                             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                                 <ol class="carousel-indicators">

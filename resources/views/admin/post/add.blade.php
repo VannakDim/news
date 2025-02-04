@@ -7,7 +7,7 @@
 @endsection
 
 @php
-    $categories = App\Models\Category::all();
+    $categories = App\Models.Category::all();
 @endphp
 
 @section('main_body')
@@ -93,7 +93,20 @@
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
-                                            
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Audio File</label>
+                                                <input type="file" name="audio" id="input-audio" class="form-control">
+                                                @error('audio')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Video File</label>
+                                                <input type="file" name="video" id="input-video" class="form-control">
+                                                @error('video')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
+                                            </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="post-img" id="img-preview"
